@@ -1,0 +1,32 @@
+.app-component__default-background,
+.app-component__navigation {
+  position: fixed;
+  top: 0;
+}
+.app-component__indent {
+  height: 55px;
+  width: 100%;
+}
+
+.main-wrapper {
+  border: 1px solid #000;
+  padding: 20px;
+  width: 100%;
+}
+.main {
+  border: 1px solid #000;
+  width: 100%;
+}
+.main__title {
+  text-align: center;
+  font-size: 30px;
+  margin-bottom: 30px;
+}
+.main__random-button {
+  border-radius: 10px;
+  height: 20px;
+  width: 100px;
+}
+
+
+/*# sourceMappingURL=main.css.map*/
