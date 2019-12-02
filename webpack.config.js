@@ -4,6 +4,7 @@ const HTMLWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const TSLintPlugin = require("tslint-webpack-plugin");
 const devServerConfig = require('./dev-server.config');
+const WorkboxPlugin = require('workbox-webpack-plugin');
 
 module.exports = {
     entry: {
@@ -71,5 +72,10 @@ module.exports = {
             typeCheck: true,
             waitForLinting: false
         })
+        // new WorkboxPlugin.GenerateSW({
+        //     swDest: './build/sw.js',
+        //     globDirectory: './src',
+        //     globPatterns: '[**/*.{js,css,html,png}]',
+        // })
     ]
 };

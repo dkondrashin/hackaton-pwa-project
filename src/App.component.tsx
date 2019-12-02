@@ -3,7 +3,8 @@
 import React from 'react';
 import { Route, Switch } from 'react-router';
 
-// import './App.component.styl';
+import './App.component.styl';
+import { MainComponent } from './components/main/main.component';
 
 
 export function AppComponent() {
@@ -12,7 +13,7 @@ export function AppComponent() {
         {/*    <NavigationComponent/>*/}
         {/*</div>*/}
 
-        <span>Start</span>
+        <MainComponent/>
 
         {/*<div className="app-component__indent"/>*/}
 
