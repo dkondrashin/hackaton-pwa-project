@@ -3,12 +3,21 @@ import './main.component.styl';
 import { AddAppOfferComponent } from '../add-app-offer.component/add-app-offer.component';
 import { modalService } from '../../common/modal/modal.service';
 
-export class MainComponent extends React.PureComponent {
+type TMainState = {
+    generated: string;
+};
+
+export class MainComponent extends React.PureComponent<{}, TMainState> {
+    readonly state: TMainState = {
+        generated: ''
+    };
+
     deferredPrompt: any;
 
     generate = (): void => {
-        console.log('random generated!');
-
+        const random = Math.floor(Math.random() * 10);
+        console.log(random, 'random generated!');
+        this.setState({ generated: random.toString() });
     };
 
     // openNewModal = (): void => {
@@ -82,6 +91,10 @@ export class MainComponent extends React.PureComponent {
     //     this.checkAppInstallPrompt();
     // }
 
+    // componentDidMount(): void {
+    //     servicewor
+    // }
+
     render(): JSX.Element {
         return <div className="main-wrapper">
             <div className="main">
@@ -89,7 +102,15 @@ export class MainComponent extends React.PureComponent {
                     Main menu
                 </div>
 
-                <button className="main__random-button" onClick={this.generate}>Start Random!</button>
+                <div className="main__generated-wrapper">
+                    <div className="main__generated">
+                        {this.state.generated}
+                    </div>
+                </div>
+
+                <div className="main__generated-wrapper">
+                    <button className="main__random-button" onClick={this.generate}>Start Random!</button>
+                </div>
             </div>
         </div>;
     }
