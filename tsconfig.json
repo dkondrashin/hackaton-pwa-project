@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./src",
+    "module": "commonjs",
+    "rootDir": "src",
+    "target": "es5",
+    "sourceMap": true,
+    "experimentalDecorators": true,
+    "jsx": "react",
+    "noImplicitAny": false,
+    "esModuleInterop": true,
+    "strictNullChecks": true
+  },
+  "exclude": [
+    "node_modules"
+  ]
+}

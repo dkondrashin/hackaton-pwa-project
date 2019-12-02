@@ -1,0 +1,17 @@
+{
+  "extends": ["tslint-eslint-rules", "tslint-react"],
+  "rules": {
+    "arrow-return-shorthand": true,
+    "member-ordering": {
+      "options": [
+        "private-before-public",
+        "static-before-instance",
+        "variables-before-functions"
+      ]
+    },
+    "cyclomatic-complexity": [true, 10],
+    "esModuleInterop": true,
+    "jsx-wrap-multiline": false,
+    "jsx-boolean-value": false
+  }
+}
