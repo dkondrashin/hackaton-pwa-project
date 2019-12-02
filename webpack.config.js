@@ -73,9 +73,9 @@ module.exports = {
             typeCheck: true,
             waitForLinting: false
         }),
-        new CopyWebpackPlugin([
-            { from: 'src/service-worker.js', to: 'service-worker.js' }
-        ])
+        // new CopyWebpackPlugin([
+        //     { from: 'src/service-worker.js', to: 'service-worker.js' }
+        // ])
         // new WorkboxPlugin.GenerateSW({
         //     swDest: './build/sw.js',
         //     globDirectory: './src',
