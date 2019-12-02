@@ -4,6 +4,7 @@ const HTMLWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const TSLintPlugin = require("tslint-webpack-plugin");
 const devServerConfig = require('./dev-server.config');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 const WorkboxPlugin = require('workbox-webpack-plugin');
 
 module.exports = {
@@ -71,7 +72,10 @@ module.exports = {
             project: 'tsconfig.json',
             typeCheck: true,
             waitForLinting: false
-        })
+        }),
+        new CopyWebpackPlugin([
+            { from: 'src/service-worker.js', to: 'service-worker.js' }
+        ])
         // new WorkboxPlugin.GenerateSW({
         //     swDest: './build/sw.js',
         //     globDirectory: './src',
