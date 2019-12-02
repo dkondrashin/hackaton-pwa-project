@@ -12,7 +12,7 @@ module.exports = {
         main: './src/index.tsx'
     },
     output: {
-        path: path.resolve(__dirname, 'dist'),
+        path: path.resolve(__dirname, 'public'),
         filename: 'main.js'
     },
     devServer: devServerConfig,
@@ -60,7 +60,7 @@ module.exports = {
     },
     plugins: [
         new HTMLWebpackPlugin({
-            template: "./src/index.html",
+            template: "./public/index.html",
             filename: "index.html"
         }),
         new MiniCssExtractPlugin({
@@ -73,9 +73,12 @@ module.exports = {
             typeCheck: true,
             waitForLinting: false
         }),
-        // new CopyWebpackPlugin([
-        //     { from: 'src/service-worker.js', to: 'service-worker.js' }
-        // ])
+        new CopyWebpackPlugin([
+            { from: 'public/service-worker.js', to: 'service-worker.js' },
+            { from: 'public/manifest.json', to: 'manifest.json' },
+            { from: 'public/images/manifest-icon-192.png', to: 'images/manifest-icon-192.png' },
+            { from: 'public/images/manifest-icon-512.png', to: 'images/manifest-icon-512.png' }
+        ])
         // new WorkboxPlugin.GenerateSW({
         //     swDest: './build/sw.js',
         //     globDirectory: './src',
