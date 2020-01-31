@@ -17,10 +17,10 @@ export function AppComponent() {
 
         {/*<div className="app-component__indent"/>*/}
 
-        <Switch>
+        {/*<Switch>*/}
             {/*<Route exact path={AppRoutes.HOME} component={CardsWrapperComponent}/>*/}
             {/*<Route path={AppRoutes.PAY_TABLE} component={PayTableComponent}/>*/}
-        </Switch>
+        {/*</Switch>*/}
 
         {/*<ModalWrapper/>*/}
     </div>;

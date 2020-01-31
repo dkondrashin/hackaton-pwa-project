@@ -4,20 +4,20 @@ import { AddAppOfferComponent } from '../add-app-offer.component/add-app-offer.c
 import { modalService } from '../../common/modal/modal.service';
 
 type TMainState = {
-    generated: string;
+    generatedNumber: number | null;
 };
 
 export class MainComponent extends React.PureComponent<{}, TMainState> {
     readonly state: TMainState = {
-        generated: ''
+        generatedNumber: null
     };
 
     deferredPrompt: any;
 
     generate = (): void => {
-        const random = Math.floor(Math.random() * 10);
-        console.log(random, 'random generated!');
-        this.setState({ generated: random.toString() });
+        const randomNum = Math.floor(Math.random() * 10);
+        // console.log(randomNum, 'random generated!');
+        this.setState({ generatedNumber: randomNum });
     };
 
     // openNewModal = (): void => {
@@ -95,16 +95,18 @@ export class MainComponent extends React.PureComponent<{}, TMainState> {
     //     servicewor
     // }
 
-    render(): JSX.Element {
+    render(): JSX.Element | null {
+        // if (!this.state || !this.state.generatedNumber) return null;
+
         return <div className="main-wrapper">
             <div className="main">
                 <div className="main__title">
-                    Main menu
+                    Generate random number
                 </div>
 
                 <div className="main__generated-wrapper">
                     <div className="main__generated">
-                        {this.state.generated}
+                        {this.state.generatedNumber}
                     </div>
                 </div>
 

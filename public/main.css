@@ -9,12 +9,12 @@
 }
 
 .main-wrapper {
-  border: 1px solid #000;
   padding: 20px;
   width: 100%;
+  min-width: 320px;
+  min-height: 600px;
 }
 .main {
-  border: 1px solid #000;
   width: 100%;
 }
 .main__title {
@@ -24,8 +24,21 @@
 }
 .main__random-button {
   border-radius: 10px;
+  height: 40px;
+  width: 140px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+.main__generated {
+  text-align: center;
+  font-size: 24px;
   height: 20px;
-  width: 100px;
+}
+.main__generated-wrapper {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-pack: center;
+          justify-content: center;
+  margin-bottom: 20px;
 }
 
 
