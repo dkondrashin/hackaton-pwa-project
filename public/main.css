@@ -1,18 +1,20 @@
-.app-component__default-background,
-.app-component__navigation {
+__navigation {
   position: fixed;
   top: 0;
 }
-.app-component__indent {
+__indent {
   height: 55px;
   width: 100%;
 }
 
 .main-wrapper {
-  padding: 20px;
+  box-sizing: border-box;
+  padding: 10px;
   width: 100%;
-  min-width: 320px;
+  min-width: 300px;
   min-height: 600px;
+  background: -webkit-gradient(linear, left top, right top, from(#ff8a00), to(#da1b60));
+  background: linear-gradient(to right, #ff8a00, #da1b60);
 }
 .main {
   width: 100%;
@@ -27,6 +29,9 @@
   height: 40px;
   width: 140px;
   box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 500;
 }
 .main__generated {
   text-align: center;
