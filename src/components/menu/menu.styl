@@ -1,0 +1,129 @@
+@require './../../style/mixins/scroll.styl';
+@require './../../style/mixins/trash-icon.styl';
+
+$curtain-width = 70%
+
+@keyframes menu-curtain-appear-width {
+    from {
+        visibility hidden
+        width 0
+    }
+
+    to {
+        visibility visible
+        width $curtain-width
+    }
+}
+@keyframes menu-curtain-appear-width-backward {
+    from {
+        visibility visible
+        width $curtain-width
+    }
+
+    to {
+        visibility hidden
+        width 0
+    }
+}
+
+@keyframes menu-appear-opacity {
+    from {
+        visibility hidden
+        opacity 0
+    }
+
+    to {
+        visibility visible
+        opacity 1
+    }
+}
+@keyframes menu-appear-opacity-backward {
+    from {
+        visibility visible
+        opacity 1
+    }
+
+    to {
+        visibility hidden
+        opacity 0
+    }
+}
+
+.menu
+    z-index 1000
+    background-color rgba(100, 114, 114, 0.7)
+    position fixed
+    top 0
+    bottom 0
+    left 0
+    right 0
+
+    &--opened
+        animation 0.3s ease-in-out menu-appear-opacity
+
+    &--closed
+        animation 0.3s ease-in-out menu-appear-opacity-backward
+        visibility hidden
+
+    &-curtain
+        z-index 1001
+        background white
+        //opacity 1
+        padding 15px 20px 20px
+        // НИЧОСИ
+        touch-action none
+        //
+        width $curtain-width
+        height 100vh
+        scroll-container()
+
+        &--opened
+            animation 0.3s ease-in-out menu-curtain-appear-width
+            //width $curtain-width
+
+        &--closed
+            animation 0.2s ease-in-out menu-appear-opacity-backward
+            visibility hidden
+            //width 0
+
+        &__title
+            font-size 24px
+            height 28px
+            width 28px
+            background-image url("/images/hamburger-menu.png")
+            background-size cover
+            background-color transparent
+            cursor pointer
+
+        &__list
+            margin-top 20px
+
+            &-item
+                font-size 20px
+                margin-bottom 10px
+                border-top 1px solid black
+                border-bottom 1px solid black
+                cursor pointer
+
+            &-sublist
+                margin-bottom 20px
+
+                &-item
+                    padding-left 5px
+                    margin-bottom 10px
+                    display flex
+                    justify-content space-between
+
+                    &-name
+                        font-size 18px
+                        color #797979
+                        cursor pointer
+                        width calc(100% - 34px)
+
+                    &-remove
+                        margin-left 10px
+                        //font-size 18px
+                        height 22px
+                        width 22px
+                        color #797979
+                        trash-icon()

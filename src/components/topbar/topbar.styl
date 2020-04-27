@@ -1,0 +1,31 @@
+@require '../../style/vars.styl';
+
+.topbar
+    //border 1px solid black
+    //position fixed
+    //top 0
+    //width $main-content-width
+    display flex
+    justify-content center
+    border-bottom 1px solid black
+
+    &__content
+        margin 15px
+        display flex
+        flex-direction row
+        justify-content space-between
+        align-items center
+        width $main-content-width
+
+    &__menu-icon
+        //margin 10px 15px
+        height 28px
+        width 28px
+        //border 1px solid white
+        background-image url("/images/hamburger-menu.png")
+        background-size cover
+        background-color transparent
+        cursor pointer
+
+    &__app-name
+        font-size 24px

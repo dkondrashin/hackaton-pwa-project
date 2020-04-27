@@ -3,11 +3,12 @@ const path = require('path');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const TSLintPlugin = require("tslint-webpack-plugin");
-const devServerConfig = require('./dev-server.config');
+const devServerConfig = require('./../dev-server.config');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const WorkboxPlugin = require('workbox-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
+const rootPath = require('path').resolve(__dirname, './../');
 const isDev = process.env.NODE_ENV === 'dev';
 const isProd = process.env.NODE_ENV === 'prod';
 const hashStrategy = isDev ? 'hash' : 'contentHash';
@@ -17,16 +18,16 @@ module.exports = {
         main: './src/index.tsx'
     },
     output: {
-        path: path.resolve(__dirname, 'public'),
+        path: path.resolve(rootPath, 'public'),
         filename: 'main.[' + hashStrategy + ':8].js'
     },
     devServer: devServerConfig,
     devtool: "source-map",
     resolve: {
         extensions: ['.ts', '.tsx', '.js', '.json', '.jsx', '.styl'],
-        modules: [path.resolve(__dirname, './src'), 'node_modules'],
+        modules: [path.resolve(rootPath, './src'), 'node_modules'],
         alias: {
-            '@style': path.resolve(__dirname, 'src/style')
+            '@style': path.resolve(rootPath, 'src/style')
         }
     },
     module: {
@@ -96,15 +97,6 @@ module.exports = {
             { from: 'manifest.json', to: 'manifest.json' },
             { from: 'src/images', to: 'images' }
         ])
-        // new CopyWebpackPlugin([
-        //     { from: 'public/service-worker.js', to: 'service-worker.js' },
-        //     { from: 'public/manifest.json', to: 'manifest.json' },
-        //     { from: 'public/images/manifest-icon-192.png', to: 'images/manifest-icon-192.png' },
-        //     { from: 'public/images/manifest-icon-512.png', to: 'images/manifest-icon-512.png' },
-        //     { from: 'public/images/plus.png', to: 'images/plus.png' },
-        //     { from: 'public/images/hamburger-menu.png', to: 'images/hamburger-menu.png' },
-        //     { from: 'public/images/urn.png', to: 'images/urn.png' }
-        // ])
         // new WorkboxPlugin.GenerateSW({
         //     swDest: './build/sw.js',
         //     globDirectory: './src',

@@ -1,20 +1,23 @@
 @require '../../style/vars.styl';
 
 .main-wrapper
+  display flex
+  justify-content center
   box-sizing border-box
-  padding 10px
+  padding 20px 15px
   width 100%
-  min-width 300px
-  min-height 600px
-  background $orange-red-l-r-gradient
 
 .main
-  width 100%
+  //width 100%
+  width $main-content-width
+  display flex
+  flex-direction column
+  align-items center
 
-  &__title
-    text-align center
-    font-size 30px
-    margin-bottom 30px
+  &__divider
+    width 100%
+    margin 10px 0
+    border-bottom  1px solid black
 
   &__random-button
     border-radius 10px
@@ -24,13 +27,75 @@
     cursor pointer
     font-size 18px
     font-weight 500
+    margin-bottom 20px
 
   &__generated
     text-align center
     font-size 24px
-    height 20px
+    min-height 20px
+    margin-top 10px
+    margin-bottom 20px
+    width 100%
 
-    &-wrapper
+  &__options
+    width 100%
+
+  &__counter
+    display flex
+    flex-direction row
+    justify-content space-between
+    align-items center
+    margin-bottom 20px
+    padding-left 5px
+    padding-right 5px
+
+    &:last-of-type
+      margin-bottom 10px
+
+    &-label
+      margin-right 5px
+
+    &-input
+      width 50px
+      border-radius 8px
+      padding 3px 5px
+      -moz-appearance none
+      -moz-box-shadow none
+      -moz-border-radius none
+      -moz-border-image none
+      font-size 16px
+      font-weight 500
+
+  &__save-template
+    padding-left 5px
+    padding-right 5px
+
+    &-row
       display flex
-      justify-content center
-      margin-bottom 20px
+      align-items center
+      justify-content space-between
+      flex-direction row
+
+    &-label
+      font-size 18px
+
+    &-input
+      border-radius 8px
+      padding 5px
+      -moz-appearance none
+      -moz-box-shadow none
+      -moz-border-radius none
+      -moz-border-image none
+      font-size 16px
+      font-weight 500
+
+    &-button
+      margin-left 10px
+      height 26px
+      width 26px
+      border none
+      background-image url("/images/save.png")
+      background-size cover
+      background-color transparent
+      cursor pointer
+
